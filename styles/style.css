@@ -38,7 +38,7 @@
   font-variation-settings: 'wght' var(--main-font-weight);
   background-image: var(--background);
   background-position: center;
-  background-size: contain;
+  background-size: 4px 4px, 4px 4px, cover;;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,10 +188,10 @@
   inline-size: 100%;
   block-size: 34px;
   justify-content: end;
-  gap: 8px;
+  gap: 7px;
 }
 
-.card__like-button {
+.card__icon-button {
   background: transparent;
   border: hidden;
   block-size: 34px;
@@ -200,11 +200,11 @@
   padding: 0;
 }
 
-.card__like-button:focus {
+.card__icon-button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible {
+.card__icon-button:focus-visible {
   outline: 2px solid var(--accent-color);
 }
 
@@ -212,17 +212,17 @@
   opacity: 0;
 }
 
-.card__icon-button {
+.card__like-button {
   background: transparent;
   border: none;
   padding-block: 10px 6px;
-  padding-inline: 35px;
+  inline-size: 128px;
   outline: 2px solid var(--accent-color);
   transition: box-shadow 0.3s ease;
   position: relative;
 }
 
-.card__icon-button:focus-visible,
+.card__like-button:focus-visible,
 .save-memories-button:focus-visible {
   box-shadow: 2px 2px 0px 2px var(--accent-color);
 }
@@ -302,7 +302,7 @@
   mix-blend-mode: difference;
 }
 
-.footer {
+.saving-section {
   inline-size: clamp(19.125rem, 18.487rem + 2.723vi, 20.938rem);
 }
 
@@ -320,11 +320,11 @@
   position: relative;
 }
 
-.card__icon-button:hover, .save-memories-button:hover {
+.card__like-button:hover, .save-memories-button:hover {
   cursor: pointer;
 }
 
-.card__icon-button:before, .save-memories-button:before {
+.card__like-button:before, .save-memories-button:before {
   content: '';
   position: absolute;
   inline-size: 100%;
@@ -336,7 +336,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.card__icon-button:hover:before, .save-memories-button:hover:before {
+.card__like-button:hover:before, .save-memories-button:hover:before {
   transform: scaleX(1);
 }
 
