@@ -10,26 +10,6 @@
 
 */
 
-@keyframes heart-scale {
-  from {
-    transform: scale(1);
-    transform-origin: center;
-  }
-  to {
-    transform: scale(1.25);
-    transform-origin: center;
-  }
-}
-
-@keyframes sparks {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -37,6 +17,7 @@
   font-family: var(--main-font), sans-serif;
   font-variation-settings: 'wght' var(--main-font-weight);
   background-image: var(--background);
+  background-attachment: fixed;
   background-position: center;
   background-size: 4px 4px, 4px 4px, cover;;
   display: flex;
@@ -61,13 +42,13 @@
 }
 
 .page-heading {
-  font-family: var(--accent-font), Roboto;
+  font-family: var(--accent-font), fantasy;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
 .header-text {
-  font-family: var(--accent-font), Roboto;
+  font-family: var(--accent-font), fantasy;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-transform: uppercase ;
@@ -89,7 +70,7 @@
 }
 
 .card-header {
-  font-family: var(--main-font);
+  font-family: var(--main-font), sans-serif;
   font-size: var(--main-font-size);
   font-variation-settings: 'wght' 700;
   margin-block: 5px 3px;
@@ -141,7 +122,7 @@
 }
 
 .watermark-text {
-  font-family: var(--accent-font), Roboto;
+  font-family: var(--accent-font), fantasy;
   font-size: var(--button-font-size);
   line-height: 14px;
   text-align: left;
@@ -200,11 +181,11 @@
   padding: 0;
 }
 
-.card__icon-button:focus {
+.button:focus {
   outline: none;
 }
 
-.card__icon-button:focus-visible {
+.button:focus-visible {
   outline: 2px solid var(--accent-color);
 }
 
@@ -212,18 +193,20 @@
   opacity: 0;
 }
 
-.card__like-button {
-  background: transparent;
+.button {
+  background: #fff;
   border: none;
-  padding-block: 10px 6px;
-  inline-size: 128px;
-  outline: 2px solid var(--accent-color);
   transition: box-shadow 0.3s ease;
+  outline: 2px solid var(--accent-color);
   position: relative;
 }
 
-.card__like-button:focus-visible,
-.save-memories-button:focus-visible {
+.card__like-button {
+  padding-block: 10px 6px;
+  inline-size: 128px;
+}
+
+.button:focus-visible {
   box-shadow: 2px 2px 0px 2px var(--accent-color);
 }
 
@@ -288,12 +271,8 @@
   transition: fill 0.1s linear;
 }
 
-.main-body {
-  transition: fill 1s linear;
-}
-
 .button__text {
-  font-family: var(--accent-font), Roboto;
+  font-family: var(--accent-font), fantasy;
   font-size: var(--button-font-size);
   font-weight: 400;
   line-height: 12.6px;
@@ -307,24 +286,19 @@
 }
 
 .save-memories-button {
-  background-color: #fff;
   display: flex;
   align-items: center;
   padding-inline: 20px;
   gap: 7px;
   margin-bottom: 103px;
   padding-block: 15px;
-  transition: box-shadow 0.3s ease;
-  border: none;
-  outline: 2px solid var(--accent-color);
-  position: relative;
 }
 
-.card__like-button:hover, .save-memories-button:hover {
+.button:hover {
   cursor: pointer;
 }
 
-.card__like-button:before, .save-memories-button:before {
+.button:before {
   content: '';
   position: absolute;
   inline-size: 100%;
@@ -336,7 +310,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.card__like-button:hover:before, .save-memories-button:hover:before {
+.button:hover:before {
   transform: scaleX(1);
 }
 
@@ -349,7 +323,7 @@
 dialog[open] {
   display: flex;
   flex-direction: column;
-  block-size: 191px;
+  padding-block: 30px;
   inline-size: clamp(21.313rem, 21.048rem + 1.127vi, 22.063rem);
   gap: 30px;
   border: 2px solid var(--accent-color);
@@ -365,13 +339,13 @@ dialog[open] {
 }
 
 .dialog-header {
-  font-family: var(--accent-font), Roboto;
-font-size: var(--button-font-size);
-font-weight: 400;
-line-height: 21px;
-text-transform: uppercase;
-text-align: left;
-inline-size: clamp(12.375rem, 11.583rem + 3.38vi, 14.625rem);
+  font-family: var(--accent-font), fantasy;
+  font-size: var(--button-font-size);
+  font-weight: 400;
+  line-height: 21px;
+  text-transform: uppercase;
+  text-align: left;
+  inline-size: clamp(12.375rem, 11.583rem + 3.38vi, 14.625rem);
 }
 
 .ok-button {
@@ -388,11 +362,11 @@ inline-size: clamp(12.375rem, 11.583rem + 3.38vi, 14.625rem);
 }
 
 dialog[open]::backdrop {
-  background-color: rgb(0 0 0 / 0.8)
+  background-color: rgb(0 0 0 / 0.75)
 }
 
 .ok-button-text {
-  font-family: var(--accent-font), Roboto;
+  font-family: var(--accent-font), fantasy;
   font-size: var(--button-font-size);
   font-weight: 400;
   line-height: 12.6px;
