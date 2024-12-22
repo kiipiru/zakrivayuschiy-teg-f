@@ -287,7 +287,6 @@
   position: relative;
   color: var(--button-text-color);
   mix-blend-mode: difference;
-  text-transform: uppercase;
 }
 
 .saving-section {
